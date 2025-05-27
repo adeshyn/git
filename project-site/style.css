@@ -1,0 +1,196 @@
+:root {
+    --navbar-color: #393f4d;
+    --background-color: #d4d4dc;
+    --primary-text-color: #393f4d; /* Darker text for readability */
+    --secondary-text-color: #6c757d; /* Muted text for descriptions */
+    --aus-color: #00843D; /* Australian green */
+    --uk-color: #C8102E;   /* British red */
+    --highlight-color: #f68d2e; /* Original highlight */
+    --card-bg: #ffffff;
+    --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--navbar-color) !important; /* Override Bootstrap primary */
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    color: #ffffff !important; /* White text for navbar brand */
+    font-weight: bold;
+}
+
+.profile-header {
+    background-color: var(--background-color); /* Use background color for a seamless look */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.project-title {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.project-subtitle {
+    color: var(--secondary-text-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--aus-color); /* Use one of the country colors for impact */
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card {
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--navbar-color) !important; /* Match navbar color */
+    color: #ffffff !important; /* White text for card headers */
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.25rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 1.5rem;
+    color: var(--primary-text-color);
+}
+
+.question h4 {
+    color: var(--primary-text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.answer {
+    color: var(--secondary-text-color);
+    padding-left: 1rem;
+    border-left: 3px solid var(--highlight-color);
+    margin-left: 0.5rem;
+}
+
+.chart-container {
+    /* Ensure the container has a defined width and height */
+    width: 100%; /* Important: Occupy full width of parent column */
+    height: 400px; /* Important: Give it a fixed height */
+    display: flex; /* Use flexbox to center SVG if needed, though not strictly required for D3 */
+    justify-content: center;
+    align-items: center;
+    /* D3 compliance: ensure SVG elements are styled via D3 or minimal CSS */
+}
+
+/* D3-specific styles for axes and text for better visual hierarchy */
+.tick line {
+    stroke: #e0e0e0;
+}
+
+.tick text {
+    font-size: 0.85rem;
+    fill: var(--secondary-text-color);
+}
+
+.axis-label {
+    font-size: 0.95rem;
+    fill: var(--primary-text-color);
+    font-weight: 600;
+}
+
+/* Table styles */
+#data-table {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    /* Add a minimum height to ensure it takes up space even when empty or loading */
+    min-height: 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners are applied */
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: var(--navbar-color);
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03); /* Subtle stripe for readability */
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+    
+    .chart-container {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
