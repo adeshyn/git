@@ -12,15 +12,24 @@ function processData(rawData) {
     if (!rawData || rawData.length === 0) return [];
 
     // Filter out any rows that might be empty or contain non-data (e.g., metadata from combined CSV)
-    const filteredData = rawData.filter(d => d.Country && d.Date && d['Amount Spent'] && d['GDP per Capita'] && d['Pharma Spending as % of GDP per Capita']);
+    // We will now calculate 'pharmaShareGDP' directly from 'Amount Spent' and 'GDP per Capita'
+    const filteredData = rawData.filter(d => d.Country && d.Date && d['Amount Spent'] && d['GDP per Capita']);
 
     const processed = filteredData.map(d => {
+        const amountSpent = parseFloat(d['Amount Spent']);
+        const gdpPerCapita = parseFloat(d['GDP per Capita']);
+        
+        // Recalculate pharmaShareGDP based on the corrected 'Amount Spent' and 'GDP per Capita'
+        // If GDP per Capita is zero or invalid, set pharmaShareGDP to 0 to avoid division by zero
+        const pharmaShareGDP = (gdpPerCapita && !isNaN(amountSpent) && !isNaN(gdpPerCapita)) ? 
+                               (amountSpent / gdpPerCapita) * 100 : 0;
+
         return {
             date: parseInt(d.Date),
             country: d.Country,
-            amountSpent: parseFloat(d['Amount Spent']),
-            gdpPerCapita: parseFloat(d['GDP per Capita']),
-            pharmaShareGDP: parseFloat(d['Pharma Spending as % of GDP per Capita'])
+            amountSpent: amountSpent,
+            gdpPerCapita: gdpPerCapita,
+            pharmaShareGDP: pharmaShareGDP // This is now calculated
         };
     }).filter(d => 
         !isNaN(d.date) && 
