@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmaceutical Spending: Australia vs UK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
@@ -22,28 +22,36 @@
             
             <div class="row mt-4 g-3">
                 <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-value" id="aus-avg-spend">-</div>
-                        <div class="stat-label">Australia Avg</div>
-                    </div>
+                    <a href="#bar-chart-section" class="stat-link">
+                        <div class="stat-card">
+                            <div class="stat-value" id="aus-avg-spend">-</div>
+                            <div class="stat-label">Australia Avg Spend</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-value" id="uk-avg-spend">-</div>
-                        <div class="stat-label">UK Avg</div>
-                    </div>
+                    <a href="#bar-chart-section" class="stat-link">
+                        <div class="stat-card">
+                            <div class="stat-value" id="uk-avg-spend">-</div>
+                            <div class="stat-label">UK Avg Spend</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-value" id="growth-rate-aus">-</div>
-                        <div class="stat-label">AU Growth Rate</div>
-                    </div>
+                    <a href="#scatter-plot-section" class="stat-link">
+                        <div class="stat-card">
+                            <div class="stat-value" id="growth-rate-aus">-</div>
+                            <div class="stat-label">AU Growth Rate</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3">
-                    <div class="stat-card">
-                        <div class="stat-value" id="growth-rate-uk">-</div>
-                        <div class="stat-label">UK Growth Rate</div>
-                    </div>
+                    <a href="#scatter-plot-section" class="stat-link">
+                        <div class="stat-card">
+                            <div class="stat-value" id="growth-rate-uk">-</div>
+                            <div class="stat-label">UK Growth Rate</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -55,11 +63,11 @@
             <div class="card-body">
                 <div class="question mb-3 pb-3 border-bottom">
                     <h4>1. How has per capita pharmaceutical spending changed over time in both countries?</h4>
-                    <p class="answer">The line chart below shows annual trends and whether spending is increasing at similar rates.</p>
+                    <p class="answer">The scatter plot and grouped bar chart below illustrate annual trends and whether spending is increasing at similar rates.</p>
                 </div>
                 <div class="question mb-3 pb-3 border-bottom">
                     <h4>2. Which country spends more on pharmaceuticals per person?</h4>
-                    <p class="answer">The bar chart comparison reveals consistent differences in spending levels between the two nations.</p>
+                    <p class="answer">The grouped bar chart provides direct comparisons, while the percentage of GDP chart normalizes spending by economic output.</p>
                 </div>
                 <div class="question mb-3 pb-3 border-bottom">
                     <h4>3. Are there any years where spending patterns diverged significantly?</h4>
@@ -67,44 +75,52 @@
                 </div>
                 <div class="question">
                     <h4>4. What is the compound annual growth rate (CAGR) for each country?</h4>
-                    <p class="answer">Calculated growth rates show which healthcare system is experiencing faster cost increases.</p>
+                    <p class="answer">Calculated growth rates shown in the top statistics cards indicate which healthcare system is experiencing faster cost increases, with trends visible in the scatter plot.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-4 g-4">
+        <div class="row mb-4 g-4" id="scatter-plot-section">
             <div class="col-lg-6">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="card-title">Spending Trends Analysis</h3>
-                        <p class="card-text">This chart illustrates the year-over-year changes in pharmaceutical spending per capita for both Australia and the United Kingdom. By tracking the trends, we can observe if spending is increasing, decreasing, or remaining stable in each country. This helps in understanding the long-term cost trajectory of pharmaceutical consumption.</p>
-                        <p class="card-text">Comparing the slopes of the lines reveals the rate of change. A steeper slope indicates faster growth in spending. Divergences in the lines can highlight periods where policy changes, economic shifts, or public health events might have impacted one country more than the other.</p>
+                        <h3 class="card-title">Wealth vs. Pharmaceutical Spending</h3>
+                        <p class="card-text">This scatter plot visualizes the relationship between a country's economic prosperity (GDP per Capita) and its pharmaceutical spending per person. Each dot represents a country in a specific year, allowing us to observe if richer countries tend to spend more on pharmaceuticals and how this relationship evolves over time for Australia, the UK, and other selected nations.</p>
+                        <p class="card-text">Hover over the dots to see detailed information for each country and year. This chart helps identify trends, outliers, and the overall economic context of pharmaceutical consumption.</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="scatter-plot">View Fullscreen</button>
+                        <button class="close-fullscreen-btn" data-chart-id="scatter-plot" style="display: none;">&times;</button>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card h-100">
-                    <div class="card-header">Spending Trends Comparison (USD per capita)</div>
+                    <div class="card-header">GDP per Capita vs. Pharma Spending (USD per capita)</div>
                     <div class="card-body">
-                        <div id="line-chart" class="chart-container"></div>
+                        <div id="scatter-plot" class="chart-container"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-4 g-4">
+        <div class="row mb-4 g-4" id="bar-chart-section">
             <div class="col-lg-6 order-lg-2">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="card-title">Average Spending Analysis</h3>
-                        <p class="card-text">The bar chart provides a direct comparison of the average pharmaceutical spending per capita over the entire period (2010-2022) for Australia and the United Kingdom. This visualization makes it immediately clear which country, on average, allocates more resources per person to pharmaceutical products.</p>
-                        <p class="card-text">This average gives a broad overview but doesn't show yearly fluctuations. It serves as a foundational metric to understand the general scale of spending between the two nations and can prompt further investigation into the underlying reasons for any significant differences.</p>
+                        <h3 class="card-title">Pharma Spending as % of GDP per Capita</h3>
+                        <p class="card-text">This bar chart compares how significant pharmaceutical spending is relative to a country's overall economic output for a selected year. It provides a normalized view, allowing for a more equitable comparison of healthcare investment priorities across different developed nations.</p>
+                        <p class="card-text">Use the dropdown below to select a year and see how the proportion of GDP dedicated to pharmaceuticals changes over time for Australia, the UK, and other comparator countries.</p>
+                        <div class="mt-3">
+                            <label for="year-selector" class="form-label">Select Year:</label>
+                            <select id="year-selector" class="form-select"></select>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="bar-chart">View Fullscreen</button>
+                        <button class="close-fullscreen-btn" data-chart-id="bar-chart" style="display: none;">&times;</button>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="card h-100">
-                    <div class="card-header">Average Spending Comparison</div>
+                    <div class="card-header">Pharma Spending as % of GDP Comparison</div>
                     <div class="card-body">
                         <div id="bar-chart" class="chart-container"></div>
                     </div>
@@ -112,13 +128,41 @@
             </div>
         </div>
 
-        <div class="row mb-4 g-4">
+        <div class="row mb-4 g-4" id="grouped-bar-chart-section">
             <div class="col-lg-6">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="card-title">Spending Difference Analysis</h3>
+                        <h3 class="card-title">Annual Pharma Spending Comparison (AU vs UK)</h3>
+                        <p class="card-text">This grouped bar chart allows for a direct side-by-side comparison of annual pharmaceutical spending per capita between Australia and the United Kingdom for selected years. It helps to quickly identify which country spent more in a given year and observe trends over multiple chosen years.</p>
+                        <p class="card-text">Select up to 6 years from the list below to compare their spending side-by-side. You can add or remove years from the display.</p>
+                        <div class="mt-3">
+                            <label for="grouped-year-selector" class="form-label" style="color: blueviolet;"><i>Select Years (Max 6, hold down the ctl button)</i>:</label>
+                            <select id="grouped-year-selector" class="form-select" multiple size="6"></select>
+                            <button id="clear-grouped-years" class="btn btn-secondary btn-sm mt-2">Clear Selection</button>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="grouped-bar-chart">View Fullscreen</button>
+                        <button class="close-fullscreen-btn" data-chart-id="grouped-bar-chart" style="display: none;">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">Australia vs UK: Annual Spending by Year</div>
+                    <div class="card-body">
+                        <div id="grouped-bar-chart" class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 g-4" id="difference-chart-section">
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Annual Spending Difference (AU - UK)</h3>
                         <p class="card-text">This chart specifically visualizes the annual difference in per capita pharmaceutical spending between Australia and the United Kingdom (Australia's spending minus UK's spending). The zero line acts as a crucial reference point, indicating years when spending was roughly equal.</p>
                         <p class="card-text">Positive values above the zero line mean Australia spent more per person, while negative values below the line indicate the UK spent more. Peaks and troughs in this chart highlight specific years where the disparity was most pronounced, providing insight into periods of significant divergence or convergence in spending policies or outcomes.</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="difference-chart">View Fullscreen</button>
+                        <button class="close-fullscreen-btn" data-chart-id="difference-chart" style="display: none;">&times;</button>
                     </div>
                 </div>
             </div>
@@ -132,6 +176,35 @@
             </div>
         </div>
 
+        <div class="card mb-4" id="data-findings">
+            <div class="card-header">Data Findings and Conclusions</div>
+            <div class="card-body">
+    
+                <h3>Based on the visualizations and the combined pharmaceutical spending and GDP per capita data, several key findings emerge:</h3>
+                <br>
+                <ul>
+                    <li>
+                        <strong>Consistent Growth in Pharmaceutical Spending:</strong> With the data correction, both Australia and the United Kingdom show a more consistent upward trend in pharmaceutical spending per capita over the period from 2010 to 2022. This reflects a general increase in demand for medicines, the introduction of new therapies, and potentially rising drug costs.
+                    </li>
+                    <br><br>
+                    <li>
+                        <strong>Australia's Higher Absolute Spending Post-2019:</strong> The "Annual Pharma Spending Comparison (AU vs UK)" grouped bar chart clearly illustrates that from 2019 onwards, Australia's absolute pharmaceutical spending per capita is consistently higher than that of the United Kingdom. This indicates a growing gap in the direct dollar amount spent per person on pharmaceuticals.
+                    </li>
+                    <br><br>
+                    <li>
+                        <strong>Relative Spending vs. Economic Growth:</strong> While Australia spends more in absolute terms post-2019, the "Pharma Spending as % of GDP per Capita" chart for the same period shows that this spending, when normalized by the country's economic output, does not necessarily represent a disproportionately larger share of Australia's GDP compared to the UK. This suggests that Australia's economic growth (GDP per capita) has kept pace with or even outstripped its pharmaceutical spending growth. Therefore, while Australia spends more in dollars, its economy is also larger, meaning the *relative burden* of pharmaceutical spending might not be as dramatically different as the absolute figures suggest. This supports the idea that Australia's higher spending is, in part, a reflection of its greater economic capacity.
+                    </li>
+                    <br><br>
+                    <li>
+                        <strong>Overall Positive Correlation with Wealth:</strong> The "Wealth vs. Pharmaceutical Spending" scatter plot generally indicates a positive relationship: countries with higher GDP per capita tend to have higher pharmaceutical spending per capita. This pattern is consistent across the observed years and countries, reinforcing that economic prosperity often correlates with increased healthcare consumption, including pharmaceuticals.
+                    </li>
+                    <br><br>
+                    <li>
+                        <strong>Fluctuations in Spending Difference:</strong> The "Annual Spending Difference (AU - UK)" chart effectively highlights periods where the gap between Australia's and the UK's spending was more pronounced. While the previous "anomalies" are resolved, this chart still provides valuable insight into the year-to-year divergence or convergence of spending patterns, reflecting dynamic healthcare environments in both countries.
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="card mb-4">
             <div class="card-header">Raw Data Table</div>
             <div class="card-body">
@@ -140,8 +213,16 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
-<footer>Data Visualisation Project by Adeniyi and Ignatius</footer>
+<footer>
+    <div class="container py-3 text-center text-muted">
+        <p>Data Visualisation Project by Adeniyi Akinnubi and Ignatius Mcdonald</p>
+        <p>Data Sources:
+            <a href="https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.PCAP.PP.CD&country=#" target="_blank" rel="noopener noreferrer">World Bank Data (GDP per capita, PPP)</a> |
+            <a href="https://data-explorer.oecd.org/vis?df[ds]=DisseminateFinalDMZ&df[id]=DSD_PDB@DF_PDB_LV&df[ag]=OECD.SDD.TPS" target="_blank" rel="noopener noreferrer">OECD Data Explorer (Pharmaceutical sales)</a>
+        </p>
+    </div>
+</footer>
 </html>
