@@ -143,7 +143,8 @@ body.no-scroll {
     /* D3 compliance: ensure SVG elements are styled via D3 or minimal CSS */
 }
 
-/* Fullscreen Chart Styles */
+/* --- Fullscreen Chart Styles --- */
+/* These rules are adapted to work with your original design while maintaining fullscreen functionality */
 .fullscreen-chart-card {
     position: fixed;
     top: 0;
@@ -151,12 +152,12 @@ body.no-scroll {
     width: 100vw;
     height: 100vh;
     z-index: 9999; /* Ensure it's on top of everything */
-    background-color: var(--background-color); /* Match body background */
+    background-color: var(--background-color); /* Use your defined background color */
     margin: 0 !important; /* Remove any margins */
     border-radius: 0 !important; /* Remove rounded corners */
     box-shadow: none !important; /* Remove shadow */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Arrange content vertically */
     justify-content: center;
     align-items: center;
     padding: 20px; /* Add some padding */
@@ -166,11 +167,12 @@ body.no-scroll {
 .fullscreen-chart-card .card-body {
     flex-grow: 1; /* Allow body to take available space */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Keep content stacked within body if necessary */
+    justify-content: center; /* Center chart vertically */
+    align-items: center; /* Center chart horizontally */
     width: 100%;
     height: 100%;
+    padding: 0; /* Remove padding from card-body in fullscreen to give more space to chart */
 }
 
 .fullscreen-chart-card .chart-container {
@@ -181,43 +183,35 @@ body.no-scroll {
     margin: auto; /* Center the chart within the container */
 }
 
+/* Hide specific elements when in fullscreen mode for a cleaner view */
 .fullscreen-chart-card .card-header,
 .fullscreen-chart-card .card-title,
 .fullscreen-chart-card .card-text,
 .fullscreen-chart-card .form-label,
 .fullscreen-chart-card .form-select,
 .fullscreen-chart-card #clear-grouped-years {
-    display: none; /* Hide non-chart elements in fullscreen mode */
+    display: none;
 }
 
+/* Ensure the expand/close button is visible and styled correctly in fullscreen */
 .fullscreen-chart-card .expand-chart-btn {
     position: absolute;
     top: 15px;
     right: 15px;
-    z-index: 10000; /* Ensure button is clickable */
+    z-index: 10000; /* Ensure button is on top */
     display: block !important; /* Make sure it's visible */
-}
-
-/* Close button for fullscreen charts */
-.close-fullscreen-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
+    background-color: var(--navbar-color); /* Match card header/navbar color */
+    color: white;
     border: none;
-    font-size: 2rem;
-    color: var(--primary-text-color); /* Adjust color as needed */
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    z-index: 10001; /* Ensure it's above everything */
-    display: none; /* Hidden by default */
-    padding: 0;
-    line-height: 1;
-    opacity: 0.7;
-    transition: opacity 0.2s ease-in-out;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
 }
 
-.close-fullscreen-btn:hover {
-    opacity: 1;
+.fullscreen-chart-card .expand-chart-btn:hover {
+    background-color: lighten(var(--navbar-color), 10%); /* Subtle hover effect */
 }
 
 
@@ -242,8 +236,7 @@ body.no-scroll {
     overflow-x: auto;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
-    /* Add a minimum height to ensure it takes up space even when empty or loading */
-    min-height: 100px;
+    min-height: 100px; /* Add a minimum height */
 }
 
 table {
@@ -251,7 +244,7 @@ table {
     border-collapse: collapse;
     background-color: var(--card-bg);
     border-radius: 8px;
-    overflow: hidden; /* Ensures rounded corners are applied */
+    overflow: hidden;
 }
 
 th, td {
@@ -269,7 +262,7 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.03); /* Subtle stripe for readability */
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 tr:hover {
@@ -284,9 +277,9 @@ tr:hover {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     border-radius: 4px;
-    pointer-events: none; /* Allows mouse events to pass through to elements underneath */
+    pointer-events: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 1000; /* Ensure tooltip is on top */
+    z-index: 1000;
 }
 
 /* Responsive adjustments */
@@ -296,10 +289,10 @@ tr:hover {
     }
     
     .chart-container {
-        height: 300px; /* Adjust height for smaller screens */
+        height: 300px;
     }
 
     .fullscreen-chart-card {
-        padding: 10px; /* Less padding on small screens */
+        padding: 10px;
     }
 }

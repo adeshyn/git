@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmaceutical Spending: Australia vs UK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
@@ -88,7 +88,7 @@
                         <p class="card-text">This scatter plot visualizes the relationship between a country's economic prosperity (GDP per Capita) and its pharmaceutical spending per person. Each dot represents a country in a specific year, allowing us to observe if richer countries tend to spend more on pharmaceuticals and how this relationship evolves over time for Australia, the UK, and other selected nations.</p>
                         <p class="card-text">Hover over the dots to see detailed information for each country and year. This chart helps identify trends, outliers, and the overall economic context of pharmaceutical consumption.</p>
                         <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="scatter-plot">View Fullscreen</button>
-                        <button class="close-fullscreen-btn" data-chart-id="scatter-plot" style="display: none;">&times;</button>
+                        <p style="color: blueviolet;"> <i>Reload to exit Fullscreen</i></p>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                             <select id="year-selector" class="form-select"></select>
                         </div>
                         <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="bar-chart">View Fullscreen</button>
-                        <button class="close-fullscreen-btn" data-chart-id="bar-chart" style="display: none;">&times;</button>
+                        <p style="color: blueviolet;"> <i>Reload to exit Fullscreen</i></p>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                             <button id="clear-grouped-years" class="btn btn-secondary btn-sm mt-2">Clear Selection</button>
                         </div>
                         <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="grouped-bar-chart">View Fullscreen</button>
-                        <button class="close-fullscreen-btn" data-chart-id="grouped-bar-chart" style="display: none;">&times;</button>
+                        <p style="color: blueviolet;"> <i>Reload to exit Fullscreen</i></p>
                     </div>
                 </div>
             </div>
@@ -154,6 +154,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row mb-4 g-4" id="difference-chart-section">
             <div class="col-lg-6">
                 <div class="card h-100">
@@ -161,9 +162,8 @@
                         <h3 class="card-title">Annual Spending Difference (AU - UK)</h3>
                         <p class="card-text">This chart specifically visualizes the annual difference in per capita pharmaceutical spending between Australia and the United Kingdom (Australia's spending minus UK's spending). The zero line acts as a crucial reference point, indicating years when spending was roughly equal.</p>
                         <p class="card-text">Positive values above the zero line mean Australia spent more per person, while negative values below the line indicate the UK spent more. Peaks and troughs in this chart highlight specific years where the disparity was most pronounced, providing insight into periods of significant divergence or convergence in spending policies or outcomes.</p>
-                        <p style="color: blueviolet;"> Highest spending difference: <span style="color: green;"> AUS/2022 = $91</span> ↑, <span style="color: red;">UK/2015 & 2018 = $42</span> ↑</p>
-                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="difference-chart">View Fullscreen</button>
-                        <button class="close-fullscreen-btn" data-chart-id="difference-chart" style="display: none;">&times;</button>
+                        <button class="btn btn-outline-primary btn-sm mt-3 expand-chart-btn" data-chart-id="difference-chart">View Fullscreen</button> 
+                           <p style="color: blueviolet;"> <i>Reload to exit Fullscreen</i></p>
                     </div>
                 </div>
             </div>
@@ -180,11 +180,12 @@
         <div class="card mb-4" id="data-findings">
             <div class="card-header">Data Findings and Conclusions</div>
             <div class="card-body">
+    
                 <h3>Based on the visualizations and the combined pharmaceutical spending and GDP per capita data, several key findings emerge:</h3>
                 <br>
                 <ul>
                     <li>
-                        <strong>Consistent Growth in Pharmaceutical Spending:</strong> With the corrected data, both Australia and the United Kingdom generally show a consistent upward trend in pharmaceutical spending per capita over the period from 2010 to 2022. This reflects a global trend of increasing demand for medicines, the introduction of new and often more expensive therapies, and overall rising healthcare costs.
+                        <strong>Consistent Growth in Pharmaceutical Spending:</strong> With the data correction, both Australia and the United Kingdom show a more consistent upward trend in pharmaceutical spending per capita over the period from 2010 to 2022. This reflects a general increase in demand for medicines, the introduction of new therapies, and potentially rising drug costs.
                     </li>
                     <br><br>
                     <li>
@@ -192,15 +193,15 @@
                     </li>
                     <br><br>
                     <li>
-                        <strong>Reconciling Absolute Spending vs. % of GDP Share:</strong> While Australia spends more in absolute terms post-2019, the "Pharma Spending as % of GDP per Capita" chart for the same period reveals that this higher spending, when normalized by the country's economic output, represents a relatively similar or even slightly smaller proportion of Australia's GDP compared to the UK. This is a crucial economic insight: it suggests that Australia's robust economic growth (GDP per capita) has largely kept pace with or outstripped its pharmaceutical spending growth. Therefore, while Australia spends more in dollars, its larger and growing economy means the *relative burden* of pharmaceutical spending might not be as dramatically different as the absolute figures alone suggest. This supports the idea that Australia's higher absolute spending is, in part, a reflection of its greater economic capacity.
+                        <strong>Relative Spending vs. Economic Growth:</strong> While Australia spends more in absolute terms post-2019, the "Pharma Spending as % of GDP per Capita" chart for the same period shows that this spending, when normalized by the country's economic output, does not necessarily represent a disproportionately larger share of Australia's GDP compared to the UK. This suggests that Australia's economic growth (GDP per capita) has kept pace with or even outstripped its pharmaceutical spending growth. Therefore, while Australia spends more in dollars, its economy is also larger, meaning the <i>relative burden</i> of pharmaceutical spending might not be as dramatically different as the absolute figures suggest. This supports the idea that Australia's higher spending is, in part, a reflection of its greater economic capacity.
                     </li>
                     <br><br>
                     <li>
-                        <strong>UK's Relatively Stable Growth:</strong> In contrast to Australia's more pronounced absolute spending increases in recent years, the United Kingdom's pharmaceutical spending per capita appears to follow a more consistent and gradual upward trajectory. This might suggest different approaches to pharmaceutical pricing and reimbursement policies or different market dynamics between the two countries.
+                        <strong>Overall Positive Correlation with Wealth:</strong> The "Wealth vs. Pharmaceutical Spending" scatter plot generally indicates a positive relationship: countries with higher GDP per capita tend to have higher pharmaceutical spending per capita. This pattern is consistent across the observed years and countries, reinforcing that economic prosperity often correlates with increased healthcare consumption, including pharmaceuticals.
                     </li>
                     <br><br>
                     <li>
-                        <strong>GDP Growth as a Driving Factor:</strong> The "Wealth vs. Pharmaceutical Spending" scatter plot generally illustrates a strong positive correlation: as countries (and years) show higher GDP per capita, their pharmaceutical spending per capita also tends to be higher. This pattern is consistent across the observed years and countries, reinforcing the idea that economic prosperity often correlates with increased healthcare consumption, including pharmaceuticals.
+                        <strong>Fluctuations in Spending Difference:</strong> The "Annual Spending Difference (AU - UK)" chart effectively highlights periods where the gap between Australia's and the UK's spending was more pronounced. While the previous "anomalies" are resolved, this chart still provides valuable insight into the year-to-year divergence or convergence of spending patterns, reflecting dynamic healthcare environments in both countries.
                     </li>
                 </ul>
             </div>
@@ -213,7 +214,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 <footer>
@@ -225,3 +226,4 @@
         </p>
     </div>
 </footer>
+</html>
